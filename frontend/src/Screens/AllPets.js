@@ -8,7 +8,7 @@ const AllPets = () => {
   const [pets, setPets] = useState([]);
   useEffect(() => {
     const quer = async () => {
-      const { data } = await axios.get("/api/pet");
+      const { data } = await axios.get("http://localhost:8000/api/pet");
       setPets(data.pets);
     };
     quer();

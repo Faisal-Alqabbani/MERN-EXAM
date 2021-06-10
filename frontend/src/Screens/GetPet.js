@@ -11,7 +11,9 @@ const GetPet = ({ match, history }) => {
   const handleShow = () => setShow(true);
   useEffect(() => {
     const getPet = async () => {
-      const { data } = await axios.get(`/api/pet/${match.params.id}`);
+      const { data } = await axios.get(
+        `http://localhost:8000/api/pet/${match.params.id}`
+      );
       setPet(data.pet);
     };
     getPet();
@@ -19,7 +21,9 @@ const GetPet = ({ match, history }) => {
 
   const deletePet = async () => {
     try {
-      await axios.delete(`/api/pet/${match.params.id}/delete`);
+      await axios.delete(
+        `http://localhost:8000/api/pet/${match.params.id}/delete`
+      );
       history.push(`/`);
     } catch (error) {
       console.log("error");
@@ -27,7 +31,9 @@ const GetPet = ({ match, history }) => {
   };
   const addLike = async () => {
     try {
-      const { data } = await axios.put(`/api/pet/${match.params.id}/like`);
+      const { data } = await axios.put(
+        `http://localhost:8000/api/pet/${match.params.id}/like`
+      );
       setPet(data.pet);
       setLoad(true);
     } catch (error) {

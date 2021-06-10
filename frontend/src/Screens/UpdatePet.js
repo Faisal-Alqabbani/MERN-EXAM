@@ -21,7 +21,9 @@ const UpdatePet = ({ history, match }) => {
   };
   useEffect(() => {
     const getPet = async () => {
-      const { data } = await axios.get(`/api/pet/${match.params.id}`);
+      const { data } = await axios.get(
+        `http://localhost:8000/api/pet/${match.params.id}`
+      );
       setUserData(data.pet);
     };
     getPet();
@@ -40,7 +42,7 @@ const UpdatePet = ({ history, match }) => {
     }
     try {
       const { data } = await axios.put(
-        `/api/pet/${match.params.id}/update`,
+        `http://localhost:8000/api/pet/${match.params.id}/update`,
         userData
       );
       setMessage(data.message);

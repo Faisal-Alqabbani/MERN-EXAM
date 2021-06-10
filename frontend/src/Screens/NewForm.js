@@ -29,7 +29,10 @@ const NewForm = ({ history }) => {
       return setErrors(err.errMsg);
     }
     try {
-      const { data } = await axios.post("/api/pet", userData);
+      const { data } = await axios.post(
+        "http://localhost:8000/api/pet",
+        userData
+      );
       history.push("/");
       console.log(data);
     } catch (error) {

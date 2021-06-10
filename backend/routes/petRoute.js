@@ -1,13 +1,14 @@
-import express from "express";
+const express = require("express");
+
 const router = express.Router();
-import {
+const {
   getAllPets,
   createPat,
   getPet,
   updatePet,
   deletePet,
   like,
-} from "../controllers/petController.js";
+} = require("../controllers/petController");
 
 router.get("/", getAllPets);
 router.post("/", createPat);
@@ -16,4 +17,4 @@ router.put("/:id/update", updatePet);
 router.delete("/:id/delete", deletePet);
 router.put("/:id/like", like);
 
-export default router;
+module.exports = router;

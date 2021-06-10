@@ -1,4 +1,4 @@
-import Pet from "../models/petModel.js";
+const Pet = require("../models/petModel");
 
 const createPat = async (req, res) => {
   try {
@@ -87,4 +87,4 @@ const like = async (req, res) => {
     res.status(500).json({ error });
   }
 };
-export { createPat, getPet, updatePet, deletePet, getAllPets, like };
+module.exports = { createPat, getPet, updatePet, deletePet, getAllPets, like };
